@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Recall</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+</head>
+<body>
+    <header class="mb-5">
+        
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-6">
+                    <h1>Read<span class="bold">Recall</span></h1>
+                </div>
+                <div class="col-6 text-end">
+                    <a class="btn btn-success addbook" href="/add">Add Book +</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="about p-5">
+           <div class="container">
+            <h2>Books I’ve read</h2>
+            <p class="w-75">
+                Tiny summary but detailed notes for each. Use the ISBN number to find it from your local library or anywhere else. 
+                This page will constantly update as I read more, so bookmark it if you want to check back in a few months.       
+            </p>
+            <p class="w-75">
+                Sorted with my top recommendations up top. Sort by <a href="/sortbytitle">title</a>, <a href="#">newest</a>, or <a href="#">best</a>.
+            </p>
+            <p class="w-75">
+                And please read <a href="">this FAQ page</a> about these notes, if you have any questions. You can also <a href="#">email me</a>.
+            </p>
+
+           </div>
+
+        </section>
+    </header>
+
+    <main class="container">
+
+    <% if(locals.books) {%>
+        <% books.forEach(book => { %>
+            <div class="abook my-5">
+                <figure><a href="/book/<%= book.book_id %>"><img class="abook-image" src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" height="187" width="125" loading="lazy" alt="<%= book.title %> - by <%= book.author %>"></a></figure>
+                <h2><a href="/book/<%= book.book_id %>"><%= book.title %> - by <%= book.author %></a></h2>
+                <small>Date read: <%= book.date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }) %>. How strongly I recommend it: <strong><%= book.rating %></strong>/10</small>
+                <p><%= book.description %></p>
+                <p class="reviews"><strong><a href="/book/<%= book.book_id %>">Read my notes</a></strong>, or go to the <a href="https://www.amazon.com/s?k=<%= book.isbn %>">Amazon page</a> for details and reviews.
+                </p>
+            </div>
+            <hr>
+            
+        <% }); %>
+        <% } %>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

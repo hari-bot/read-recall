@@ -1,0 +1,88 @@
+body{
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #f4f2e9;
+}
+
+header h1{
+ color: #463020;
+ font-weight: lighter;
+}
+
+.addbook, .addbook:hover, .addbook:active, .addbook:visited {
+    border: 2px solid #463020 !important;
+    background-color: #f4f2e9 !important;
+    color: #463020;
+    padding: 10px 20px;
+    font-size: larger;
+    border-radius: 20px;
+}
+
+header h1 .bold{
+    font-weight:400;
+}
+
+.about{
+    background-color: #333d30;
+    color: #FFFFFF;
+}
+
+.abook img{
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 10px;
+}
+
+.abook .reviews {
+    clear: left;
+}
+
+.form-control:focus {
+    border-color: #f4f2e9;
+    box-shadow: 0 0 0 0.25rem rgba(244, 242, 233,0.25);
+  }
+
+.add{
+    background-color: #f4f2e9;
+    border: 1px solid #e9e1c1;
+    color: #463020;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: larger;
+    transition: background-color 0.3s ease;
+    outline: none;
+
+}
+
+.add:hover, .add:active, .add:focus {
+    background-color: #e7d999 !important;
+    border: 1px solid #e9e1c1 !important;
+    color: #463020 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.add:focus {
+    border-color: #e9e1c1 !important;
+    box-shadow: 0 0 0 0.25rem #e7d999 !important; /* Adjust as needed */
+}
+
+.book{
+    display: flex;
+}
+
+.book img{
+    margin-right: 30px;   
+}
+
+#edit,#save{
+    border: none;
+    background: none;
+}
+
+.save-btn, .save-btn:hover, .save-btn:active, .save-btn:visited{
+    background-color: #333d30 !important;
+}
