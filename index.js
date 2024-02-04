@@ -32,10 +32,27 @@ app.get("/",async (req,res)=>{
     res.render("index.ejs",{
         books
     })
-})
+});
 
 app.get("/sortbytitle",async(req,res)=>{
   const data = await db.query("SELECT * FROM books ORDER BY title ASC");
+  books = data.rows;
+  res.render("index.ejs",{
+    books
+})
+});
+
+
+app.get("/sortbynewest",async(req,res)=>{
+  const data = await db.query("SELECT * FROM books ORDER BY book_id DESC");
+  books = data.rows;
+  res.render("index.ejs",{
+    books
+})
+})
+
+app.get("/sortbybest",async(req,res)=>{
+  const data = await db.query("SELECT * FROM books ORDER BY rating DESC");
   books = data.rows;
   res.render("index.ejs",{
     books
@@ -44,6 +61,10 @@ app.get("/sortbytitle",async(req,res)=>{
 
 app.get("/add",(req,res)=>{
     res.render("add.ejs")
+})
+
+app.get("/about",(req,res)=>{
+  res.render("about.ejs")
 })
 
 app.post("/add",async (req,res)=>{
